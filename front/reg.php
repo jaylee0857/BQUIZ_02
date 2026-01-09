@@ -53,12 +53,12 @@ function reg() {
         if (user.pw == user.pw2) {
             $.get('./api/chk_acc.php',{'acc':user.acc},(res)=>{
                 if (!parseInt(res)) {
-                    console.log(!parseInt(res));
+                    // console.log(!parseInt(res));
                     $.post("./api/reg.php",user,(res)=>{
                         alert("註冊成功, 歡迎加入")
                         $("form")[0].reset(); 
                     })
-                    console.log(res);
+                    // console.log(res);
                 }else {
                     alert("帳號重複")
                 }
@@ -68,7 +68,7 @@ function reg() {
             alert("密碼錯誤")
 
         }
-        console.log(user);
+        // console.log(user);
         
     }else {
         alert("不可空白")

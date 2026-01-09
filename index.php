@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html
+﻿<?php 
+	include_once "./api/db.php";
+?>
+<!DOCTYPE html
 	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0039) -->
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -36,10 +39,17 @@
 				<a class="blo" href="?do=que">問卷調查</a>
 			</div>
 			<div class="hal" id="main">
-
 				<div>
 					<marquee style="width:80%; display:inline-block;">請民眾踴躍投稿電子報，讓電子報成為大家相互交流、分享的園地！詳見最新文章</marquee>
 					<span style="width:18%; display:inline-block;">
+						<?php
+							// dd($_SESSION);
+							if ($_SESSION['login']) {
+								echo "歡迎{$_SESSION['login']}";
+							}else {
+								echo "<a href='?do=login'>會員登入</a>";
+							}
+						?>
 						<a href="?do=login">會員登入</a>
 					</span>
 					<div class="">
