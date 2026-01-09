@@ -33,12 +33,21 @@
 				<a class="blo" href="?do=que">問卷調查</a>
 			</div>
 			<div class="hal" id="main">
-				<div>
 
+				<div>
 					<span style="width:18%; display:inline-block;">
 						<a href="?do=login">會員登入</a>
 					</span>
 					<div class="">
+						<?php
+							$do=$_GET['do'] ?? 'main';
+							$file = "./front/{$do}.php";
+							if (file_exists($file)) {
+								include $file;
+							}else{
+								include "./front/main.php";
+							}
+						?>
 					</div>
 				</div>
 			</div>
@@ -46,7 +55,7 @@
 		<div id="bottom">
 			本網站建議使用：IE9.0以上版本，1024 x 768 pixels 以上觀賞瀏覽 ， Copyright © 2012健康促進網社群平台 All Right Reserved
 			<br>
-			服務信箱：health@test.labor.gov.tw<img src="./home_files/02B02.jpg" width="45">
+			服務信箱：health@test.labor.gov.tw<img src="./icon/02B02.jpg" width="45">
 		</div>
 	</div>
 
