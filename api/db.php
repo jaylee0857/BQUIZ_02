@@ -154,10 +154,5 @@ class DB{
 
 }
 
-$Admin = new DB('admin');
-$Total = new DB('total');
-
-
-
-
+$Member = new DB('member');
 ?>

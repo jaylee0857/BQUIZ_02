@@ -29,7 +29,7 @@
             </tr>
             <tr>
                 <td>
-                    <input type="submit" value="註冊">
+                    <input type="button" value="註冊" onclick="reg()">
                     <input type="reset" value="清除">
     
                 </td>
@@ -38,3 +38,41 @@
         </table>
     </form>
 </fieldset>
+
+<script>
+
+function reg() {
+    let user= {
+        'acc':$('#acc').val(),
+        'pw':$('#pw').val(),
+        'pw2':$('#pw2').val(),
+        'email':$('#email').val(),
+    }
+
+    if (user.acc != '' && user.pw != '' && user.pw2 != '' && user.email != '' ) {
+        if (user.pw == user.pw2) {
+            $.get('./api/chk_acc.php',{'acc':user.acc},(res)=>{
+                if (!parseInt(res)) {
+                    console.log(!parseInt(res));
+                    $.post("./api/reg.php",user,(res)=>{
+                        alert("註冊成功, 歡迎加入")
+                        $("form")[0].reset(); 
+                    })
+                    console.log(res);
+                }else {
+                    alert("帳號重複")
+                }
+            })
+        }
+        else {
+            alert("密碼錯誤")
+
+        }
+        console.log(user);
+        
+    }else {
+        alert("不可空白")
+    }
+}
+
+</script>
