@@ -23,7 +23,9 @@
 	<iframe name="back" style="display:none;"></iframe>
 	<div id="all">
 		<div id="title">
-			00 月 00 號 Tuesday | 今日瀏覽: 1 | 累積瀏覽: 36  <a style="float:right" href="index.php">回首頁</a></div>
+			<?=date("m 月 d 號 l")?> | 
+			今日瀏覽: <?=$Total->find(['date'=>date("Y-m-d")])['total']?> | 
+			累積瀏覽: <?=$Total->sum('total')?>  <a style="float:right" href="index.php">回首頁</a></div>
 			
 		<div id="title2">
 			<a href="index.php">

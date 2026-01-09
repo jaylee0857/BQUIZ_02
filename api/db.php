@@ -155,4 +155,21 @@ class DB{
 }
 
 $Member = new DB('member');
+$Total = new DB('total');
+
+// 處理每日瀏覽
+if (!isset($_SESSION['total'])) {
+    $today = $Total->find(['date'=>date("Y-m-d")]);
+    dd($today);
+    if (empty($today)) {
+        $Total->save(['date'=>date("Y-m-d"), 'total'=>1]);
+    }else {
+        $today['total']++;
+        $Total->save($today);
+    }
+
+    $_SESSION['total'] = 1;
+}
+
+
 ?>
