@@ -44,13 +44,19 @@
 					<span style="width:18%; display:inline-block;">
 						<?php
 							// dd($_SESSION);
-							if ($_SESSION['login']) {
+							if (isset($_SESSION['login'])) {
 								echo "歡迎{$_SESSION['login']}";
+								if ($_SESSION['login'] == 'admin') {
+									echo "<br>";
+									echo "<button>管理</button>";
+								}
+								echo "<button>登出</button>";
+
 							}else {
 								echo "<a href='?do=login'>會員登入</a>";
 							}
 						?>
-						<a href="?do=login">會員登入</a>
+						<!-- <a href="?do=login">會員登入</a> -->
 					</span>
 					<div class="">
 						<?php
