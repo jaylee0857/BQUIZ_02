@@ -155,6 +155,7 @@ class DB{
 
 $Member = new DB('member');
 $Total = new DB('total');
+$News = new DB('news');
 
 // 處理每日瀏覽
 if (!isset($_SESSION['total'])) {
