@@ -17,10 +17,13 @@
         text-align: center;
         cursor: pointer;
         background-color: rgba(170, 170, 170, 1);
+        padding:10px;
+
 
     }
     .tag.active{
         background-color: rgba(255, 255, 255, 1);
+        border-bottom: 1px solid white;
     }
 
     .sesson{
