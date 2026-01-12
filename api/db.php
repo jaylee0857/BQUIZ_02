@@ -97,7 +97,6 @@ class DB{
             $vals = join("','", $array);
             $sql = "INSERT INTO `{$this->table}` (`{$cols}`) VALUES ('{$vals}')";
         }
-        dd($sql);
         return $this->pdo->exec($sql);
     }
 
@@ -160,7 +159,7 @@ $Total = new DB('total');
 // 處理每日瀏覽
 if (!isset($_SESSION['total'])) {
     $today = $Total->find(['date'=>date("Y-m-d")]);
-    dd($today);
+    // dd($today);
     if (empty($today)) {
         $Total->save(['date'=>date("Y-m-d"), 'total'=>1]);
     }else {
