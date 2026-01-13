@@ -15,14 +15,14 @@ function to($url){
 }
 
 function q($sql){
-    $dsn = "mysql:host=localhost;charset=utf8;dbname=db02_1";
+    $dsn = "mysql:host=localhost;charset=utf8;dbname=db02_2";
     $pdo =  new PDO(dsn,'root','');
     return $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 
 }
 
 class DB{
-    private $dsn = "mysql:host=localhost;dbname=db02_1;charset=utf8;";
+    private $dsn = "mysql:host=localhost;dbname=db02_2;charset=utf8;";
     private $pdo;
     private $table;
     public $type_text = [1=>"健康新知",  
@@ -158,25 +158,21 @@ class DB{
 
 }
 
-$Member = new DB('member');
-$Total = new DB('total');
-$News = new DB('news');
-$Que = new DB('que');
-$Log = new DB('log');
+$Visit=new DB("visit");
+$Member=new DB("member");
+#
 
-
-// 處理每日瀏覽
-if (!isset($_SESSION['total'])) {
-    $today = $Total->find(['date'=>date("Y-m-d")]);
-    // dd($today);
+$today = $Visit->find(['date'=>date("Y-m-d")]);
+if (!isset($_SESSION['visit'])) {
     if (empty($today)) {
-        $Total->save(['date'=>date("Y-m-d"), 'total'=>1]);
-    }else {
-        $today['total']++;
-        $Total->save($today);
-    }
+        $Visit->save(['date'=>date("Y-m-d"), 'visit'=>1]);
 
-    $_SESSION['total'] = 1;
+    }else{
+        $today['visit']++;
+        $Visit->save($today);
+    }
+        
+    $_SESSION['visit'] = 1;
 }
 
 
