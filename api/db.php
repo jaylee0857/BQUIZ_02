@@ -25,6 +25,11 @@ class DB{
     private $dsn = "mysql:host=localhost;dbname=db02_1;charset=utf8;";
     private $pdo;
     private $table;
+    public $type_text = [1=>"健康新知",  
+                    2=>"菸害防治",
+                    3=>"癌症防治",
+                    4=>"慢性病防治",
+                    ];
 
     function __construct($table){
         $this->table = $table;
@@ -157,6 +162,8 @@ $Member = new DB('member');
 $Total = new DB('total');
 $News = new DB('news');
 $Que = new DB('que');
+$Log = new DB('log');
+
 
 // 處理每日瀏覽
 if (!isset($_SESSION['total'])) {
