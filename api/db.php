@@ -160,6 +160,10 @@ class DB{
 
 $Visit=new DB("visit");
 $Member=new DB("member");
+$News=new DB("news");
+$Que=new DB("que");
+
+
 #
 
 $today = $Visit->find(['date'=>date("Y-m-d")]);

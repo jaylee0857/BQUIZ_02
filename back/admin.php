@@ -1,4 +1,3 @@
- <p style="color:red">*請設定你要註冊的帳號及密碼(最常12是原)</p>
 
     <form action="./api/admin.php" method="post">
         <table width="60%" style="margin:auto">
@@ -18,7 +17,8 @@
                 <td><?=$row['acc']?></td>
                 <td><?=str_repeat("*", strlen($row['pw']))?></td>
                 <td>
-                    <input type="checkbox" name="del[]" value="<?=$row['id']?>" id="">
+                    <input type="checkbox" name="del[]" value="<?=$row['id']?>">
+                    <input type="hidden" name="id[]" value="<?=$row['id']?>">
                 </td>
             </tr>
             <?php
@@ -30,7 +30,7 @@
             <input type="reset" value="清空選取">
         </div>
     </form>
-
+     <p style="color:red">*請設定你要註冊的帳號及密碼(最常12是原)</p>
     <form action="">
         <table width="60%" class="mt">
         <tr>
@@ -87,7 +87,7 @@
             else{
                 $.post("./api/reg.php",user,function(){
                     alert("註冊成功");
-                    $('form')[0].reset()
+                    location.href = "?do=admin";
                 })
             }
         })
