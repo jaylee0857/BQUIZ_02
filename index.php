@@ -14,6 +14,16 @@
 	<link href="./css/css.css" rel="stylesheet" type="text/css">
 	<script src="./js/jquery-3.4.1.min.js"></script>
 	<script src="./js/js.js"></script>
+	<style>
+    #alerr{
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+		min-height: 100px;
+        max-height: 400px;
+    }
+	</style>
 </head>
 
 <body>

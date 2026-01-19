@@ -162,6 +162,8 @@ $Visit=new DB("visit");
 $Member=new DB("member");
 $News=new DB("news");
 $Que=new DB("que");
+$Log=new DB("log");
+
 
 
 #
